@@ -21,4 +21,4 @@ export const getUsers = async (_req: Request, res: Response) => {
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
-};
+}; 
