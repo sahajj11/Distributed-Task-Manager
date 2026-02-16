@@ -11,6 +11,7 @@ model User {
   id        String   @id @default(uuid())
   email     String   @unique
   name      String
+  password  String   @default("temporary_password_change_me")
   tasks     Task[]   @relation("AssignedTasks")
   projects ProjectMember[]
   createdAt DateTime @default(now())

@@ -6,6 +6,7 @@ import projectRoutes from "../src/routes/project.routes.ts"
 import tasksRoutes from "../src/routes/tasks.routes.ts"
 import usersRoutes from "../src/routes/user.routes.ts"
 import memberRoutes from "../src/routes/member.routes.ts"
+import authRoutes from "../src/routes/auth.routes.ts"
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use("/api/projects",projectRoutes)
 app.use("/api/tasks",tasksRoutes)
 app.use("/api/users",usersRoutes)
 app.use("/api/members",memberRoutes)
+app.use("/api/auth",authRoutes)
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
