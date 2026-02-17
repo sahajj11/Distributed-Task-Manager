@@ -1,9 +1,15 @@
 import type { Request, Response } from "express";
 import * as ProjectService from '../services/project.service.ts';
 
-export const createProject=async(req:Request , res :Response)=>{
+interface AuthRequest extends Request {
+  userId: string; 
+}
+
+export const createProject=async(req:AuthRequest , res :Response)=>{
     try{
-        const {name , description , userId} = req.body
+        const {name , description } = req.body
+        const userId=req.userId
+
         if(!name || !userId ){
             res.status(400).json({error:"Project name and UserId is required"})
         }
@@ -26,9 +32,9 @@ export const getAllProjects=async(req:Request , res :Response)=>{
     }
 }
 
-export const getMyProjects = async (req: Request, res: Response) => {
+export const getMyProjects = async (req: AuthRequest, res: Response) => {
   try {
-    const { userId } = req.query; // Usually passed via query params or Auth middleware
+    const userId = req.userId; // Usually passed via query params or Auth middleware
 
     if (!userId) {
       return res.status(400).json({ error: 'User ID is required to fetch projects' });
@@ -38,5 +44,5 @@ export const getMyProjects = async (req: Request, res: Response) => {
     res.json(projects);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
-  }
+  } 
 };

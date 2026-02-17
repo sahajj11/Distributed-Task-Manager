@@ -46,7 +46,7 @@ export const getTasksByProject=async(req:Request , res :Response)=>{
 export const assignTask = async (req: Request, res: Response) => {
   try {
     const { taskId, userId } = req.body;
-
+ 
     if (!taskId || !userId) {
       return res.status(400).json({ error: 'Task ID and User ID are required' });
     }

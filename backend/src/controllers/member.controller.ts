@@ -1,9 +1,14 @@
 import type { Request, Response } from "express";
 import * as MembarService from '../services/member.service.ts';
 
-export const addMemberToProject=async(req:Request , res: Response)=>{
+interface AuthRequest extends Request {
+  userId?: string; 
+}
+
+export const addMemberToProject=async(req:AuthRequest , res: Response)=>{
     try{
-        const {projectId , userId , role } = req.body
+        const {projectId , role } = req.body
+        const userId=req.userId
 
     if (!projectId || !userId) {
       return res.status(400).json({ error: 'Project ID and User ID are required' });
