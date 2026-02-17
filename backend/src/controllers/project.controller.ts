@@ -34,6 +34,7 @@ export const getAllProjects=async(req:Request , res :Response)=>{
 
 export const getMyProjects = async (req: AuthRequest, res: Response) => {
   try {
+    console.log(req.userId)
     const userId = req.userId; // Usually passed via query params or Auth middleware
 
     if (!userId) {

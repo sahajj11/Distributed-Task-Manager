@@ -13,6 +13,7 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
+    console.log("Token being sent:", token)
     
     if (token) {
       // We use the 'Bearer' scheme which is standard for JWT

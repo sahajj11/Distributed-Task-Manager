@@ -1,9 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'sonner';
+// import { Auth } from './pages/Auth';
+// import { DashboardLayout } from './layouts/DashBoardLayout';
+// import { Overview } from './pages/Overview';
+// import { Projects } from './pages/Projects';
+import { Overview } from './pages/Overview';
+import { Projects } from './pages/Projects';
 import { Auth } from './pages/Auth';
 import { DashboardLayout } from './layouts/DashBoardLayout';
-import { Overview } from './pages/Overview';
 
 
 // The "Guard": Redirects to Login if no token is found
@@ -51,7 +56,7 @@ function App() {
         > 
            <Route path="/dashboard" element={<Overview />} />
           
-          <Route path="/projects" element={<Overview />} /> 
+          <Route path="/projects" element={<Projects />} /> 
         // </Route>
 
         {/* 404 Catch-all */}
